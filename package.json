@@ -1,0 +1,25 @@
+{
+  "name": "@lightyears1998/akane0",
+  "version": "1.0.0",
+  "description": "The path to the truth is tortuous.",
+  "main": "index.js",
+  "repository": "https://github.com/lightyears1998/akane0.git",
+  "author": "lightyears <lightyears1998@hotmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint src --fix",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "typescript": "^4.5.4"
+  },
+  "devDependencies": {
+    "@lightyears1998/eslint-config-lightyears-style": "^1.5.0",
+    "@types/node": "^17.0.10",
+    "@typescript-eslint/eslint-plugin": "^5.10.0",
+    "@typescript-eslint/parser": "^5.10.0",
+    "eslint": "^8.7.0",
+    "eslint-plugin-import": "^2.25.4",
+    "ts-node-dev": "^1.1.8"
+  }
+}
