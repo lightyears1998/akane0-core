@@ -1,3 +1,1 @@
-class MiraiAgent {
-  // Leave it future
-}
+import "./agent";

@@ -1,2 +1,9 @@
+# Dependencies and built files
 node_modules
 lib
+**.tgz
+
+# Runtime files
+**.log
+.env
+var
