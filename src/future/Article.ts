@@ -12,6 +12,7 @@ export class Article implements SemanticTreeNode {
   expand() {
     return;
   }
+
   conclude() {
     return;
   }

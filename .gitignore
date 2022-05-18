@@ -5,5 +5,6 @@ lib
 
 # Runtime files
 **.log
+adapters/**
 .env
 var
