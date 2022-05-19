@@ -4,3 +4,4 @@
 .gitattributes
 .gitignore
 tsconfig.json
+.env
