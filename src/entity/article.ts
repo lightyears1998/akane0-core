@@ -1,4 +1,4 @@
-import { SemanticTreeNode } from "./SemanticTreeNode";
+import { SemanticTreeNode } from "./semantic-tree";
 
 export class Article implements SemanticTreeNode {
   children: SemanticTreeNode[];

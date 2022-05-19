@@ -2,7 +2,6 @@ root: true
 env:
   es6: true
   node: true
-  # browser: true
 parser: '@typescript-eslint/parser'
 parserOptions:
   project: ./tsconfig.json
@@ -10,7 +9,6 @@ plugins:
   - '@typescript-eslint'
   - import
 extends:
-  # react-app
   - plugin:@typescript-eslint/recommended
   - plugin:import/errors
   - plugin:import/warnings
@@ -21,8 +19,8 @@ globals:
   SharedArrayBuffer: readonly
 rules:
   indent:
-    - warn
-    - 2
-    - SwitchCase: 1
+    - off
+  "@typescript-eslint/indent":
+    - off
   no-console:
     - off

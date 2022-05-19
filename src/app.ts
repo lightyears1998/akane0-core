@@ -1,10 +1,11 @@
+import "reflect-metadata";
 import path from "path";
 
 import fs from "fs-extra";
 import debug from "debug";
 import registerCleanUpHandler from "node-cleanup";
 
-import { ADAPTERS } from "./config";
+import { CORE_ADAPTERS } from "./config";
 import { resolveAdapter } from "./plugin";
 import { AkaneAdapter } from "./interface";
 
@@ -17,7 +18,7 @@ export const adaptersPath = path.join(rootPath, "./adapters");
 const adapters: Array<AkaneAdapter> = [];
 
 function printDebugInfo() {
-  const parameters = { ADAPTERS };
+  const parameters = { ADAPTERS: CORE_ADAPTERS };
   debugPrint("parameters", parameters);
 }
 
@@ -28,7 +29,7 @@ async function ensureDirs() {
 }
 
 async function installAdapters() {
-  const candidateAdapterNames = ADAPTERS;
+  const candidateAdapterNames = CORE_ADAPTERS;
   for (const name of candidateAdapterNames) {
     let adapterConstructor;
     try {

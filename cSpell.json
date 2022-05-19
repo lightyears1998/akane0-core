@@ -2,6 +2,7 @@
     "allowCompoundWords": true,
     "words": [
         "akane",
-        "Mirai"
+        "Mirai",
+        "typeorm"
     ]
 }
