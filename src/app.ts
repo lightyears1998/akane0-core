@@ -4,13 +4,11 @@ import fs from "fs-extra";
 import debug from "debug";
 import registerCleanUpHandler from "node-cleanup";
 
-import {
-  MIRAI_HOST, MIRAI_HTTP_BASIC_AUTH, MIRAI_HTTP_PORT, MIRAI_ADAPTER_QQ, MIRAI_VERIFY_KEY, MIRAI_WS_PORT, MIRAI_MASTER_QQ
-} from "./config";
+import { ADAPTERS } from "./config";
 import { resolveAdapter } from "./plugin";
 import { AkaneAdapter } from "./interface";
 
-export const debugPrint = debug("akane");
+export const debugPrint = debug("akane0-core");
 
 export const rootPath = path.resolve(path.join(__dirname, ".."));
 export const varPath = path.join(rootPath, "./var");
@@ -19,10 +17,8 @@ export const adaptersPath = path.join(rootPath, "./adapters");
 const adapters: Array<AkaneAdapter> = [];
 
 function printDebugInfo() {
-  const miraiParameters = {
-    MIRAI_HOST, MIRAI_HTTP_BASIC_AUTH, MIRAI_VERIFY_KEY, MIRAI_HTTP_PORT, MIRAI_WS_PORT, MIRAI_ADAPTER_QQ, MIRAI_MASTER_QQ
-  };
-  debugPrint("miraiParameters", miraiParameters);
+  const parameters = { ADAPTERS };
+  debugPrint("parameters", parameters);
 }
 
 async function ensureDirs() {
@@ -32,7 +28,7 @@ async function ensureDirs() {
 }
 
 async function installAdapters() {
-  const candidateAdapterNames = (process.env.ADAPTERS || "").split(",").map(name => name.trim());
+  const candidateAdapterNames = ADAPTERS;
   for (const name of candidateAdapterNames) {
     let adapterConstructor;
     try {
@@ -70,6 +66,6 @@ async function bootstrap() {
 bootstrap();
 
 registerCleanUpHandler(function (exitCode, signal) {
-  debugPrint({ exitCode, signal });
+  debugPrint("performing clean-up and exiting.", { exitCode, signal });
   stopAdapters();
 });
