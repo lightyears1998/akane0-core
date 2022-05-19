@@ -1,1 +1,1 @@
-export * from "./AkaneAdapter";
+export * from "./akane-adapter";
