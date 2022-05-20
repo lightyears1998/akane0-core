@@ -8,6 +8,7 @@ parserOptions:
 plugins:
   - '@typescript-eslint'
   - import
+  - prettier
 extends:
   - plugin:@typescript-eslint/recommended
   - plugin:import/errors
@@ -18,6 +19,10 @@ globals:
   Atomics: readonly
   SharedArrayBuffer: readonly
 rules:
+  "prettier/prettier":
+    - warn
+  # Since we are using prettier to format our code,
+  # both eslint and @typescript-eslint indent rules should be disabled.
   indent:
     - off
   "@typescript-eslint/indent":

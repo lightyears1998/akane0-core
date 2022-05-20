@@ -50,12 +50,14 @@ async function installAdapters() {
 }
 
 async function startAdapters() {
-  const startupTasks = Promise.allSettled(adapters.map(adapter => adapter.start()));
+  const startupTasks = Promise.allSettled(
+    adapters.map((adapter) => adapter.start())
+  );
   await startupTasks;
 }
 
 function stopAdapters() {
-  adapters.map(adapter => adapter.stop());
+  adapters.map((adapter) => adapter.stop());
 }
 
 async function bootstrap() {
