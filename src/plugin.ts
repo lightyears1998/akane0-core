@@ -30,7 +30,7 @@ export async function installPlugin(
     const pluginLibPath = pluginNameResolver(pluginName);
     pluginConstructor = (await import(pluginLibPath)).default;
   } catch {
-    console.error(`Can't find adapter named ${pluginName}.`);
+    console.error(`Can't find plugin named ${pluginName}.`);
     return;
   }
 

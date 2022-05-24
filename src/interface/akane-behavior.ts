@@ -1,6 +1,6 @@
 import { AkanePlugin } from "./akane-plugin";
 
-export interface AkaneAdapter extends AkanePlugin {
+export interface AkaneBehavior extends AkanePlugin {
   id: string;
   version: string;
 

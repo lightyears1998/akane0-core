@@ -14,7 +14,7 @@ extends:
   - plugin:import/errors
   - plugin:import/warnings
   - plugin:import/typescript
-  - "@lightyears1998/lightyears-style"
+  # "@lightyears1998/lightyears-style"
 globals:
   Atomics: readonly
   SharedArrayBuffer: readonly
