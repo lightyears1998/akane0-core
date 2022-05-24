@@ -1,6 +1,6 @@
 {
   "name": "@lightyears1998/akane0-core",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "The path to the truth is tortuous.",
   "main": "lib/index.js",
   "types": "lib/index.d.js",
@@ -9,8 +9,8 @@
   "license": "MIT",
   "scripts": {
     "lint": "eslint src --fix",
-    "dev": "cross-env DEBUG=* ts-node-dev --respawn --transpile-only src/index.ts",
-    "start": "cross-env DEBUG=* ts-node src/index.ts",
+    "dev": "cross-env DEBUG=* ts-node-dev --respawn --transpile-only src/app.ts",
+    "start": "cross-env DEBUG=* ts-node src/app.ts",
     "build": "tsc",
     "prepack": "npm run build"
   },

@@ -1,0 +1,85 @@
+{
+    "root": {
+        "data": {
+            "id": "ck17dm2rov40",
+            "created": 1652705989425,
+            "text": "Akane0",
+            "note": "- 以 adapter 系统拓展交流途径\n- 以 behavior 插件系统拓展内容\n\n## 参考文献\n\n- Transformer 跨语言翻译系统"
+        },
+        "children": [
+            {
+                "data": {
+                    "id": "ck17doqi2lc0",
+                    "created": 1652705995213,
+                    "text": "core",
+                    "note": "语言解析工具"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "ck17dy4sm740",
+                            "created": 1652706015669,
+                            "text": "中文分词",
+                            "note": "jieba"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "ck17egu7g5s0",
+                    "created": 1652706056387,
+                    "text": "adapter"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "ck17fghor3k0",
+                            "created": 1652706133994,
+                            "text": "cli"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "ck17el6kcls0",
+                            "created": 1652706065842,
+                            "text": "mirai",
+                            "note": "Tecent QQ"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "ck17ejzv6280",
+                            "created": 1652706063260,
+                            "text": "email"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "ck17e82jzrk0",
+                    "created": 1652706037301,
+                    "text": "behavior"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "ck17edp2gf40",
+                            "created": 1652706049546,
+                            "text": "reminder"
+                        },
+                        "children": []
+                    }
+                ]
+            }
+        ]
+    },
+    "template": "right",
+    "theme": "fresh-blue",
+    "version": "1.4.43"
+}

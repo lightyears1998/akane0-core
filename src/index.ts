@@ -1,3 +1,2 @@
+import "reflect-metadata";
 export * from "./interface";
-
-import "./app";
