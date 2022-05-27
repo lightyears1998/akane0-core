@@ -1,18 +1,28 @@
-import { sync as resolve } from "resolve";
+import { sync as resolveNodeModule } from "resolve";
 
-import { adaptersPath, behaviorsPath } from "./app";
+import { pluginPath } from "./app";
 import { AkanePlugin } from "./interface";
+
+export type PluginType = "adapter" | "behavior";
 
 export type PluginNameResolver = (pluginName: string) => string;
 
 export async function installPlugins(
-  pluginNameList: string[],
-  pluginNameResolver: PluginNameResolver
+  pluginNameList: Record<PluginType, string[]>
 ) {
   const installedPlugins: Array<AkanePlugin> = [];
 
-  for (const pluginName of pluginNameList) {
-    const plugin = await installPlugin(pluginName, pluginNameResolver);
+  const realPluginNames: string[] = [];
+  const { adapter, behavior } = pluginNameList;
+  for (const name of adapter) {
+    realPluginNames.push(`./akane0-adapter-${name}`);
+  }
+  for (const name of behavior) {
+    realPluginNames.push(`./akane0-behavior-${name}`);
+  }
+
+  for (const pluginName of realPluginNames) {
+    const plugin = await installPlugin(pluginName);
     if (plugin) {
       installedPlugins.push(plugin);
     }
@@ -22,12 +32,11 @@ export async function installPlugins(
 }
 
 export async function installPlugin(
-  pluginName: string,
-  pluginNameResolver: PluginNameResolver
+  pluginName: string
 ): Promise<AkanePlugin | undefined> {
   let pluginConstructor;
   try {
-    const pluginLibPath = pluginNameResolver(pluginName);
+    const pluginLibPath = resolvePlugin(pluginName);
     pluginConstructor = (await import(pluginLibPath)).default;
   } catch {
     console.error(`Can't find plugin named ${pluginName}.`);
@@ -43,18 +52,6 @@ export async function installPlugin(
   }
 }
 
-export function adapterResolver(adapterName: string): string {
-  const prefix = "./akane0-adapter-";
-  const realPluginName = `${prefix}${adapterName}`;
-  return resolvePlugin(adaptersPath, realPluginName);
-}
-
-export function behaviorResolver(behaviorName: string): string {
-  const prefix = "./akane0-behavior-";
-  const realPluginName = `${prefix}${behaviorName}`;
-  return resolvePlugin(behaviorsPath, realPluginName);
-}
-
-export function resolvePlugin(basedir: string, pluginName: string): string {
-  return resolve(pluginName, { basedir: basedir });
+export function resolvePlugin(pluginName: string): string {
+  return resolveNodeModule(pluginName, { basedir: pluginPath });
 }

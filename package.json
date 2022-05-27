@@ -1,6 +1,6 @@
 {
   "name": "@lightyears1998/akane0-core",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "The path to the truth is tortuous.",
   "main": "lib/index.js",
   "types": "lib/index.d.js",
